@@ -10,6 +10,10 @@
 
 <script setup lang="ts">
 const { state } = useAppState();
+
+useHead({
+  title: 'GrowRoom - EMISSION:IMPOSSIBLE'
+})
 </script>
 
 <style scoped>

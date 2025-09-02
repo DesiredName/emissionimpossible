@@ -1,11 +1,15 @@
 <template>
     <div class="welcome-screen-container">
         <div class="form-container">
-            <div class="form">
+            <form
+                class="form"
+                @submit.prevent="handleGoToQuestion"
+            >
                 <div class="form-title-container">
                     <div class="company-logo">
                         <img
                             class="logo-icon"
+                            alt="GrowRoom company logo"
                             src="/assets/logo.png"
                         >
                         <span class="logo-title">GrowRoom</span>
@@ -25,8 +29,10 @@
                             size="1"
                             required
                             autocomplete="username"
+                            autofocus
+                            ar
                             :class="{ 'is-invalid': isUsernameError }"
-                            @focus="isUsernameError = false"
+                            @focus="handleResetError"
                         >
                     </div>
                     <div class="control-container">
@@ -39,20 +45,18 @@
                             size="1"
                             required
                             autocomplete="email"
+                            pattern="^.*@.*\..{2,}$"
                             :class="{ 'is-invalid': isEmailError }"
-                            @focus="isEmailError = false"
+                            @focus="handleResetError"
                         >
                     </div>
                     <div class="control-container">
-                        <button
-                            type="button"
-                            @click="handleGoToQuestion"
-                        >
+                        <button type="submit">
                             Start Game
                         </button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </template>
@@ -63,14 +67,29 @@ const { goto } = useAppState();
 const email = ref<string>('');
 const username = ref<string>('');
 
+const resetErrorStateTimer = ref<number | undefined>(undefined);
 const isEmailError = ref<boolean>(true);
 const isUsernameError = ref<boolean>(true);
 
-const handleGoToQuestion = () => {
+const handleResetError = () => {
+    window.clearTimeout(resetErrorStateTimer.value);
+
+    resetErrorStateTimer.value = undefined;
+    isEmailError.value = false;
+    isUsernameError.value = false;
+}
+
+const handleGoToQuestion = async () => {
+    window.clearTimeout(resetErrorStateTimer.value);
+
     isEmailError.value = /^.*@.*\..{2,}$/i.test(email.value) !== true;
     isUsernameError.value = username.value.trim().length <= 0;
 
     if (isEmailError.value || isUsernameError.value) {
+        resetErrorStateTimer.value = window.setTimeout(() => {
+            handleResetError()
+        }, 4000);
+
         return
     } else {
         goto('q1');
@@ -135,13 +154,12 @@ onMounted(() => {
     @apply text-white;
 }
 
-.form input,
-.form button {
+.form input {
     @apply border-none outline-none;
 }
 
 .form input.is-invalid {
-    @apply text-red-500 animate-pulse;
+    @apply animate-[bounce-3times_1s_3];
 }
 
 .form input {
