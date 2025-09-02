@@ -4,7 +4,10 @@
             <div class="form">
                 <div class="form-title-container">
                     <div class="company-logo">
-                        <img class="logo-icon" src="/assets/logo.png">
+                        <img
+                            class="logo-icon"
+                            src="/assets/logo.png"
+                        >
                         <span class="logo-title">GrowRoom</span>
                     </div>
                     <div class="company-slogan">
@@ -12,16 +15,39 @@
                     </div>
                 </div>
                 <div class="form-controls-container">
-                     <div class="control-container">
+                    <div class="control-container">
                         <label for="username">Name</label>
-                        <input id="username" type="text" placeholder="Enter your name" size="1">
+                        <input
+                            id="username"
+                            v-model="username"
+                            type="text"
+                            placeholder="Enter your name"
+                            size="1"
+                            required
+                            autocomplete="username"
+                            :class="{ 'is-invalid': isUsernameError }"
+                            @focus="isUsernameError = false"
+                        >
                     </div>
                     <div class="control-container">
                         <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="Enter your email" size="1">
+                        <input
+                            id="email"
+                            v-model="email"
+                            type="email"
+                            placeholder="Enter your email"
+                            size="1"
+                            required
+                            autocomplete="email"
+                            :class="{ 'is-invalid': isEmailError }"
+                            @focus="isEmailError = false"
+                        >
                     </div>
                     <div class="control-container">
-                        <button type="button" @click="handleGoToQuestion">
+                        <button
+                            type="button"
+                            @click="handleGoToQuestion"
+                        >
                             Start Game
                         </button>
                     </div>
@@ -34,7 +60,27 @@
 <script setup lang="ts">
 const { goto } = useAppState();
 
-const handleGoToQuestion = () => goto('q1');
+const email = ref<string>('');
+const username = ref<string>('');
+
+const isEmailError = ref<boolean>(true);
+const isUsernameError = ref<boolean>(true);
+
+const handleGoToQuestion = () => {
+    isEmailError.value = /^.*@.*\..{2,}$/i.test(email.value) !== true;
+    isUsernameError.value = username.value.trim().length <= 0;
+
+    if (isEmailError.value || isUsernameError.value) {
+        return
+    } else {
+        goto('q1');
+    }
+}
+
+onMounted(() => {
+    isEmailError.value = false;
+    isUsernameError.value = false;
+});
 </script>
 
 <style scoped>
@@ -92,6 +138,10 @@ const handleGoToQuestion = () => goto('q1');
 .form input,
 .form button {
     @apply border-none outline-none;
+}
+
+.form input.is-invalid {
+    @apply text-red-500 animate-pulse;
 }
 
 .form input {
