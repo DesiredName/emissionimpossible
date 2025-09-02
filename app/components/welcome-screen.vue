@@ -35,12 +35,10 @@
     @apply min-w-full min-h-full;
     @apply bg-left-top bg-cover bg-no-repeat;
     @apply bg-[url(./assets/bg-mobile.png)] md:bg-[url(./assets/bg-tablet.png)] xl:bg-[url(./assets/bg-desktop.png)];
-    @apply items-center justify-end;
 }
 
 .welcome-screen-container .form-container {
-    @apply flex flex-col flex-nowrap items-center justify-start;
-    @apply w-full min-h-[50vh];
+    @apply flex flex-col flex-nowrap;
 }
 
 /* form */
@@ -81,7 +79,7 @@
 }
 
 .welcome-screen-container .form .control-container > input::placeholder {
-    @apply text-gray-500;
+    @apply text-sig-placeholder;
 }
 
 .welcome-screen-container .form .control-container > button {
@@ -91,8 +89,17 @@
 
 /* sizing */
 
+.welcome-screen-container {
+    @apply items-center justify-end;
+    @apply xl:items-end xl:justify-center;
+}
+
 .welcome-screen-container .form-container {
     @apply pb-5;
+    @apply xl:pb-10 xl:pr-32;
+    @apply items-center justify-start;
+    @apply w-full min-h-[50vh];
+    @apply xl:w-auto xl:items-end;
 }
 
 .welcome-screen-container .form {
@@ -143,11 +150,11 @@
 .welcome-screen-container .form .control-container > button {
     @apply mt-3 rounded-xl;
     @apply md:mt-1 md:rounded-lg;
+    @apply tracking-wider;
 }
 
 .welcome-screen-container .form .control-container > button,
 .welcome-screen-container .form .control-container > input {
-    @apply tracking-wider;
     @apply text-sm;
     @apply md:text-lg;
     @apply px-2 py-3 min-w-full;
