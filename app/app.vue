@@ -1,13 +1,11 @@
 <template>
-  <div class="bg-sig-yellow">
-    hi {{ result }}
+  <div class="app-container">
+    <welcome-screen/>
   </div>
 </template>
 
-<script setup lang="ts">
-const result = ref<string>('waiting...')
-
-onMounted(async () => {
-  result.value = await $fetch<string>('/api/test');
-})
-</script>
+<style scoped>
+.app-container {
+  @apply w-screen h-screen overflow-visible;
+}
+</style>
