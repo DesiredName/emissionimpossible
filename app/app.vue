@@ -3,6 +3,7 @@
     <transition name="fade" mode="out-in" :appear="true">
       <welcome-screen v-if="state == 'welcome'" key="welcome" />
       <final-screen v-else-if="state == 'final'" key="finall" />
+      <score-screen v-else-if="state == 'score'" key="score" />
       <question-screen v-else key="questions" />
     </transition>
   </div>
@@ -12,7 +13,16 @@
 const { state } = useAppState();
 
 useHead({
-  title: 'GrowRoom - EMISSION:IMPOSSIBLE'
+  title: 'GrowRoom - EMISSION:IMPOSSIBLE',
+})
+
+useSeoMeta({
+  description: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`,
+  ogLocale: 'en_GB',
+  ogTitle: `Sustainable Digital Marketing Agency | GrowRoom`,
+  ogDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`,
+  twitterTitle: `Sustainable Digital Marketing Agency | GrowRoom`,
+  twitterDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`
 })
 </script>
 
