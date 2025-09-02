@@ -49,7 +49,7 @@
 }
 
 .welcome-screen-container .form .form-title-container {
-    @apply flex flex-row items-center justify-between;
+    @apply flex flex-row items-center justify-stretch;
 }
 
 .welcome-screen-container .form .form-title-container .logo-title {
@@ -57,7 +57,7 @@
 }
 
 .welcome-screen-container .form .logo-slogan {
-    @apply text-white uppercase font-agdasima;
+    @apply text-white uppercase font-agdasima text-center;
 }
 
 .welcome-screen-container .form .form-controls-container {
@@ -103,8 +103,8 @@
 }
 
 .welcome-screen-container .form {
-    @apply gap-4 overflow-hidden;
-    @apply w-80 md:w-[28rem];
+    @apply gap-2;
+    @apply w-[20.5rem] md:w-[28rem];
 }
 
 .welcome-screen-container .form .form-title-container {
@@ -118,12 +118,12 @@
 }
 
 .welcome-screen-container .form .form-title-container .logo-title {
-    @apply text-[2.75rem] leading-9;
+    @apply text-5xl;
     @apply md:text-[3.8rem] md:leading-[3rem];
 }
 
 .welcome-screen-container .form .logo-slogan {
-    @apply text-[2.93rem] leading-10;
+    @apply text-5xl;
     @apply md:text-[4.05rem] md:leading-[4rem];
 }
 
@@ -150,7 +150,6 @@
 .welcome-screen-container .form .control-container > button {
     @apply mt-3 rounded-xl;
     @apply md:mt-1 md:rounded-lg;
-    @apply tracking-wider;
 }
 
 .welcome-screen-container .form .control-container > button,
