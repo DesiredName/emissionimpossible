@@ -34,7 +34,7 @@
     @apply flex flex-col;
     @apply min-w-full min-h-full;
     @apply bg-left-top bg-cover bg-no-repeat;
-    @apply bg-[url(./assets/bg-mobile.png)] md:bg-[url(./assets/bg-tablet.png)] xl:bg-[url(./assets/bg-desktop.png)];
+    @apply bg-[url(/assets/bg-mobile.png)] md:bg-[url(/assets/bg-tablet.png)] xl:bg-[url(/assets/bg-desktop.png)];
 }
 
 .welcome-screen-container .form-container {
