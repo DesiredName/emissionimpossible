@@ -27,10 +27,8 @@
                             type="text"
                             placeholder="Enter your name"
                             size="1"
-                            required
                             autocomplete="username"
                             autofocus
-                            ar
                             :class="{ 'is-invalid': isUsernameError }"
                             @focus="handleResetError"
                         >
@@ -43,7 +41,6 @@
                             type="email"
                             placeholder="Enter your email"
                             size="1"
-                            required
                             autocomplete="email"
                             :class="{ 'is-invalid': isEmailError }"
                             @focus="handleResetError"
