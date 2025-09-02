@@ -45,7 +45,6 @@
                             size="1"
                             required
                             autocomplete="email"
-                            pattern="^.*@.*\..{2,}$"
                             :class="{ 'is-invalid': isEmailError }"
                             @focus="handleResetError"
                         >
