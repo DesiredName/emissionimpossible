@@ -21,7 +21,7 @@
                         <input id="email" type="email" placeholder="Enter your email" size="1">
                     </div>
                     <div class="control-container">
-                        <button type="button">
+                        <button type="button" @click="handleGoToQuestion">
                             Start Game
                         </button>
                     </div>
@@ -30,6 +30,12 @@
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+const { goto } = useAppState();
+
+const handleGoToQuestion = () => goto('q1');
+</script>
 
 <style scoped>
 .welcome-screen-container {

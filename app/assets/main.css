@@ -1,3 +1,19 @@
 :root {
     @apply font-poppins;
 }
+
+/* transition */
+.fade-enter-from,
+.fade-leave-to {
+    @apply opacity-0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    @apply transition-opacity duration-300;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    @apply opacity-100;
+}
