@@ -3,20 +3,22 @@
         <div class="form-container">
             <div class="form">
                 <div class="form-title-container">
-                    <img src="/assets/logo.png" class="logo-icon">
-                    <span class="logo-title">GrowRoom</span>
-                </div>
-                <div class="logo-slogan">
-                    EMISSION:IMPOSSIBLE
+                    <div class="company-logo">
+                        <img class="logo-icon" src="/assets/logo.png">
+                        <span class="logo-title">GrowRoom</span>
+                    </div>
+                    <div class="company-slogan">
+                        EMISSION:IMPOSSIBLE
+                    </div>
                 </div>
                 <div class="form-controls-container">
-                    <div class="control-container">
+                     <div class="control-container">
                         <label for="username">Name</label>
-                        <input id="username" type="text" placeholder="Enter your name">
+                        <input id="username" type="text" placeholder="Enter your name" size="1">
                     </div>
                     <div class="control-container">
                         <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="Enter your email">
+                        <input id="email" type="email" placeholder="Enter your email" size="1">
                     </div>
                     <div class="control-container">
                         <button type="button">
@@ -37,126 +39,135 @@
     @apply bg-[url(/assets/bg-mobile.png)] md:bg-[url(/assets/bg-tablet.png)] xl:bg-[url(/assets/bg-desktop.png)];
 }
 
-.welcome-screen-container .form-container {
-    @apply flex flex-col flex-nowrap;
-}
-
 /* form */
-
-.welcome-screen-container .form {
-    @apply flex flex-col flex-nowrap items-start justify-stretch;
-    @apply min-w-0 w-full;
+.welcome-screen-container .form-container .form {
+    @apply min-w-min w-fit;
 }
 
-.welcome-screen-container .form .form-title-container {
-    @apply flex flex-row items-center justify-stretch;
+.form .form-title-container {
+    @apply flex flex-col flex-nowrap min-w-0;
 }
 
-.welcome-screen-container .form .form-title-container .logo-title {
-    @apply flex-1 text-white font-bold;
+.form .form-title-container .company-logo {
+    @apply flex flex-row flex-nowrap justify-evenly items-center;
 }
 
-.welcome-screen-container .form .logo-slogan {
-    @apply text-white uppercase font-agdasima text-center;
+.form .form-title-container .company-logo .logo-icon {
+    @apply shrink-0 grow-0;
 }
 
-.welcome-screen-container .form .form-controls-container {
-    @apply w-full min-w-0;
-    @apply flex flex-col;
+.form .form-title-container .company-logo .logo-title {
+    @apply flex-1 text-end font-bold;
 }
 
-.welcome-screen-container .form .control-container {
+.form .form-title-container .company-slogan {
+    @apply font-agdasima font-bold;
+}
+
+/* controls */
+.form input,
+.form button {
+    @apply min-w-0 overflow-hidden;
+}
+
+.form .form-controls-container {
+    @apply flex flex-col flex-nowrap justify-start items-stretch;
+}
+
+.form .form-controls-container .control-container {
     @apply flex flex-col justify-start items-stretch;
 }
 
-.welcome-screen-container .form .control-container > label {
+/* colors */
+.form {
     @apply text-white;
 }
 
-.welcome-screen-container .form .control-container > input {
-    @apply bg-white;
+.form input,
+.form button {
     @apply border-none outline-none;
 }
 
-.welcome-screen-container .form .control-container > input::placeholder {
+.form input {
+    @apply text-sig-grey;
+}
+
+.form input::placeholder {
     @apply text-sig-placeholder;
 }
 
-.welcome-screen-container .form .control-container > button {
-    @apply font-bold bg-sig-accent;
-    @apply border-none outline-none;
+.form button {
+    @apply bg-sig-accent text-sig-grey;
 }
 
-/* sizing */
+/* placing form */
 
 .welcome-screen-container {
-    @apply items-center justify-end;
-    @apply xl:items-end xl:justify-center;
+    @apply items-center justify-end pb-20;
+    @apply md:pb-32;
+    @apply xl:items-end xl:pb-32 xl:pr-32;
 }
 
-.welcome-screen-container .form-container {
-    @apply pb-5;
-    @apply xl:pb-10 xl:pr-32;
-    @apply items-center justify-start;
-    @apply w-full min-h-[50vh];
-    @apply xl:w-auto xl:items-end;
+/* sizing - company-slogan is base width */
+
+.form .form-title-container {
+    @apply gap-1;
+    @apply md:gap-2;
+    @apply xl:gap-3;
 }
 
-.welcome-screen-container .form {
-    @apply gap-2;
-    @apply w-[20.5rem] md:w-[28rem];
-}
-
-.welcome-screen-container .form .form-title-container {
-    @apply gap-3;
-    @apply md:gap-4;
-}
-
-.welcome-screen-container .form .form-title-container .logo-icon {
+.form .form-title-container .company-logo .logo-icon {
     @apply h-8 w-12;
-    @apply md:h-12 md:w-28;
+    @apply md:h-9 md:w-13;
+    @apply xl:h-14 xl:w-20;
 }
 
-.welcome-screen-container .form .form-title-container .logo-title {
-    @apply text-5xl;
-    @apply md:text-[3.8rem] md:leading-[3rem];
+.form .form-title-container .company-logo .logo-title {
+    @apply text-4xl;
+    @apply md:text-5xl;
+    @apply xl:text-7xl xl:font-bold;
 }
 
-.welcome-screen-container .form .logo-slogan {
-    @apply text-5xl;
-    @apply md:text-[4.05rem] md:leading-[4rem];
+.form .form-title-container .company-slogan {
+    @apply text-4xl tracking-wide;
+    @apply md:text-5xl md:tracking-normal;
+    @apply xl:text-7xl;
 }
 
-.welcome-screen-container .form .form-controls-container {
+.form label {
+    @apply text-xs;
+    @apply md:text-sm;
+    @apply xl:text-lg;
+}
+
+.form input,
+.form button {
+    @apply px-2 py-2.5 text-xs rounded-md;
+}
+
+.form input {
+    @apply md:text-base;
+    @apply xl:text-lg xl:py-4 xl:px-3;
+}
+
+.form button {
+    @apply md:py-3.5 md:font-bold md:tracking-wider;
+    @apply xl:text-lg xl:py-4 xl:tracking-normal;
+}
+
+.form .form-controls-container {
     @apply gap-2 mt-3;
-    @apply md:gap-5 md:mt-5;
+    @apply md:mt-5;
+    @apply xl:gap-3;
 }
 
-.welcome-screen-container .form .control-container {
-    @apply gap-2;
-    @apply md:gap-1;
+.form .form-controls-container .control-container {
+    @apply gap-1;
+    @apply xl:gap-0.5;
 }
 
-.welcome-screen-container .form .control-container > label {
-    @apply text-sm;
-    @apply md:text-lg;
-}
-
-.welcome-screen-container .form .control-container > input {
-    @apply rounded-[0.25rem];
-    @apply md:rounded-lg;
-}
-
-.welcome-screen-container .form .control-container > button {
-    @apply mt-3 rounded-xl;
-    @apply md:mt-1 md:rounded-lg;
-}
-
-.welcome-screen-container .form .control-container > button,
-.welcome-screen-container .form .control-container > input {
-    @apply text-sm;
-    @apply md:text-lg;
-    @apply px-2 py-3 min-w-full;
-    @apply md:px-3 md:py-4;
+.form .form-controls-container .control-container:has(button) {
+    @apply mt-2;
+    @apply xl:mt-4;
 }
 </style>

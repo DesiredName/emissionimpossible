@@ -11,9 +11,12 @@ export default <Partial<Config>>{
         'sig-yellow': '#ffd700',
         'sig-green': '#425d44',
         'sig-accent': '#ffc01e',
-        'sig-grey': '#f3f3f3',
+        'sig-grey': '#373737',
         'sig-placeholder': '#ababab'
       },
+      width: {
+        '13': '3.25rem'
+      }
     },
   },
 }
