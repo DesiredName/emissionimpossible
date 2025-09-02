@@ -118,7 +118,7 @@
 }
 
 .welcome-screen-container .form .form-title-container .logo-title {
-    @apply text-[2.75rem] leading-9 tracking-wider;
+    @apply text-[2.75rem] leading-9;
     @apply md:text-[3.8rem] md:leading-[3rem];
 }
 
