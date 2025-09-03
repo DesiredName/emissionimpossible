@@ -88,7 +88,7 @@ const handleGoToQuestion = async () => {
 
         return
     } else {
-        goto('q1');
+        goto('questionnaire');
     }
 }
 

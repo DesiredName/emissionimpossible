@@ -1,4 +1,4 @@
-type AppState = 'welcome' | 'q1' | 'score' | 'final';
+type AppState = 'welcome' | 'questionnaire' | 'score' | 'final';
 
 const state = ref<AppState>('welcome');
 
