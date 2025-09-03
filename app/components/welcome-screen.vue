@@ -5,19 +5,7 @@
                 class="form"
                 @submit.prevent="handleGoToQuestion"
             >
-                <div class="form-title-container">
-                    <div class="company-logo">
-                        <img
-                            class="logo-icon"
-                            alt="GrowRoom company logo"
-                            src="/assets/logo.png"
-                        >
-                        <span class="logo-title">GrowRoom</span>
-                    </div>
-                    <div class="company-slogan">
-                        EMISSION:IMPOSSIBLE
-                    </div>
-                </div>
+                <ElementsCompanySlogan class="company-slogan" />
                 <div class="form-controls-container">
                     <div class="control-container">
                         <label for="username">Name</label>
@@ -111,26 +99,6 @@ onMounted(() => {
     @apply min-w-min w-fit;
 }
 
-.form .form-title-container {
-    @apply flex flex-col flex-nowrap min-w-0;
-}
-
-.form .form-title-container .company-logo {
-    @apply flex flex-row flex-nowrap justify-evenly items-center;
-}
-
-.form .form-title-container .company-logo .logo-icon {
-    @apply shrink-0 grow-0;
-}
-
-.form .form-title-container .company-logo .logo-title {
-    @apply flex-1 text-end font-bold;
-}
-
-.form .form-title-container .company-slogan {
-    @apply font-agdasima font-bold;
-}
-
 /* controls */
 .form input,
 .form button {
@@ -180,28 +148,10 @@ onMounted(() => {
 
 /* sizing - company-slogan is base width */
 
-.form .form-title-container {
-    @apply gap-1;
-    @apply md:gap-2;
-    @apply xl:gap-3;
-}
-
-.form .form-title-container .company-logo .logo-icon {
-    @apply h-8 w-12;
-    @apply md:h-9 md:w-13;
-    @apply xl:h-14 xl:w-20;
-}
-
-.form .form-title-container .company-logo .logo-title {
-    @apply text-4xl;
-    @apply md:text-5xl;
-    @apply xl:text-7xl xl:font-bold;
-}
-
-.form .form-title-container .company-slogan {
-    @apply text-4xl tracking-wide;
-    @apply md:text-5xl md:tracking-normal;
-    @apply xl:text-7xl;
+.form .company-slogan {
+    @apply origin-center object-contain w-64;
+    @apply md:w-80;
+    @apply xl:w-[30.5rem];
 }
 
 .form label {
@@ -226,9 +176,9 @@ onMounted(() => {
 }
 
 .form .form-controls-container {
-    @apply gap-2 mt-3;
+    @apply gap-2;
     @apply md:mt-5;
-    @apply xl:gap-3;
+    @apply xl:gap-3 xl:mt-12;
 }
 
 .form .form-controls-container .control-container {
