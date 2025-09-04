@@ -26,14 +26,13 @@
             />
         </div>
 
-        <button
+        <ElementsButton
             v-if="areCardsLocked"
-            class="next-button"
             @click="handleNextState"
         >
             Continue
-        </button>
-        <div v-else class="next-button-placeholder">
+        </ElementsButton>
+        <div v-else class="min-h-14">
             <!-- placeholder -->
         </div>
     </div>
@@ -82,16 +81,5 @@ const handleNextState = () => {
     @apply flex flex-col flex-nowrap justify-start md:justify-center items-center gap-2 md:gap-4 py-10 md:py-0;
     @apply min-w-full min-h-full;
     @apply bg-sig-whiteish;
-}
-
-.question-screen .next-button {
-    @apply text-sig-green font-bold text-lg;
-    @apply px-12 bg-sig-accent rounded-lg;
-    @apply transition-transform duration-300 hover:scale-105;
-}
-
-.question-screen .next-button,
-.question-screen .next-button-placeholder {
-    @apply min-h-14;
 }
 </style>

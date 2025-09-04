@@ -11,6 +11,7 @@ export type Question = {
 }
 
 export default function () {
+    const { totalQuestions } = useAppConfig()
     const companies: Company[] = [
         { name: "Amazon", logo: "🏪", emissions: 3.2, isSustainable: false },
         { name: "Shell", logo: "⛽", emissions: 4.8, isSustainable: false },
@@ -28,7 +29,7 @@ export default function () {
     const sustainableCompanies = companies.filter(c => c.isSustainable);
     const pollutingCompanies = companies.filter(c => !c.isSustainable);
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < totalQuestions; i++) {
         const sustainable = sustainableCompanies[Math.floor(Math.random() * sustainableCompanies.length)];
         const polluting = pollutingCompanies[Math.floor(Math.random() * pollutingCompanies.length)];
 

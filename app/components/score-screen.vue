@@ -1,12 +1,28 @@
 <template>
     <div class="score-screen">
-        {{ results.emoji }}
-        <button @click="handleNextState">next</button>
+        <div class="text-3xl">
+            {{ results.emoji }}
+        </div>
+        <div class="text-3xl font-extrabold">
+            Your score
+        </div>
+        <div>
+            <ElementsProgresscircle
+                :value="getScore"
+                :total="totalQuestions"
+            />
+        </div>
+        <ElementsButton @click="handleNextState">
+            Continue to Final Test
+        </ElementsButton>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ElementsButton } from '#components';
+
 const { goto, getScore } = useAppState();
+const { totalQuestions } = useAppConfig()
 const handleNextState = () => goto('final');
 
 const results = computed<{ emoji: string; message: string }>(() => {

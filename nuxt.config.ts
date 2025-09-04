@@ -25,7 +25,9 @@ export default defineNuxtConfig({
   googleFonts: {
     display: 'block',
     families: {
-      Poppins: true,
+      Poppins: {
+        wght:[400,700,800]
+      },
       Agdasima: true
     }
   }

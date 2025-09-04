@@ -8,11 +8,11 @@ export default <Partial<Config>>{
         'agdasima': ['Agdasima']
       },
       colors: {
-        'sig-green': '#425d44',
-        'sig-accent': '#ffc01e',
-        'sig-grey': '#373737',
-        'sig-placeholder': '#ababab',
-        'sig-whiteish': 'rgb(243, 243, 243)',
+        'sig-green': 'var(--sig-green)',
+        'sig-accent': 'var(--sig-accent)',
+        'sig-grey': 'var(--sig-grey)',
+        'sig-placeholder': 'var(--sig-placeholder)',
+        'sig-whiteish': 'var(--sig-whiteish)',
       },
       width: {
         '13': '3.25rem'

@@ -1,5 +1,11 @@
 :root {
     @apply font-poppins;
+    /* colors */
+    --sig-green: #425d44;
+    --sig-accent: #ffc01e;
+    --sig-grey: #373737;
+    --sig-placeholder: #ababab;
+    --sig-whiteish: #f3f3f3;
 }
 
 /* transition */
