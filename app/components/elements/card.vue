@@ -1,5 +1,5 @@
 <template>
-    <div class="element-card">
+    <div tabindex="0" role="button" :class="{'element-card': true, 'is-locked': isLocked}">
         <div class="text-9xl">{{ company.logo }}</div>
         <div class="text-xl font-bold">{{ company.name }}</div>
         <div class="answer-block">
@@ -15,22 +15,28 @@
 
 <script setup lang="ts">
 defineProps<{
-    company: Company
+    company: Company,
+    isLocked: boolean,
 }>()
 </script>
 
 <style scoped>
 .element-card {
-    --card-width: min(20vw, 40rem);
+    --card-width: min(80vw, 28rem);
 
+    @apply select-none;
     @apply bg-white shadow-md rounded-xl cursor-pointer;
-    @apply flex flex-col gap-3 items-center justify-center;
+    @apply flex flex-col gap-3 items-center justify-center; 
 
     @apply transition-all duration-300;
     @apply hover:scale-105;
 
     width: var(--card-width);
     height: var(--card-width);
+}
+
+.element-card.is-locked {
+    @apply cursor-not-allowed;
 }
 
 .element-card .answer-block {

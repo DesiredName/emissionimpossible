@@ -10,11 +10,11 @@
 </template>
 
 <script setup lang="ts">
-const { state } = useAppState();
+const { state, resetScore } = useAppState();
 
 useHead({
   title: 'GrowRoom - EMISSION:IMPOSSIBLE',
-})
+});
 
 useSeoMeta({
   description: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`,
@@ -23,6 +23,10 @@ useSeoMeta({
   ogDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`,
   twitterTitle: `Sustainable Digital Marketing Agency | GrowRoom`,
   twitterDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`
+});
+
+onMounted(() => {
+  resetScore();
 })
 </script>
 
