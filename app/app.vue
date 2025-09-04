@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-const { state, resetScore } = useAppState();
+const { state } = useAppState();
 
 useHead({
   title: 'GrowRoom - EMISSION:IMPOSSIBLE',
@@ -24,10 +24,6 @@ useSeoMeta({
   twitterTitle: `Sustainable Digital Marketing Agency | GrowRoom`,
   twitterDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`
 });
-
-onMounted(() => {
-  resetScore();
-})
 </script>
 
 <style scoped>

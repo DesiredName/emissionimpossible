@@ -13,8 +13,7 @@
             Which website has <span className="font-bold">higher</span> carbon emissions per page load?
         </div>
 
-        <div class="flex flex-col md:flex-row justify-evenly items-center gap-12 mt-10 mb-8">
-            {{ getScore }}
+        <div class="flex flex-col md:flex-row justify-evenly items-center gap-12 my-8">
             <ElementsCard
                 :company="companyA"
                 :is-locked="areCardsLocked"
@@ -34,11 +33,14 @@
         >
             Continue
         </button>
+        <div v-else class="next-button-placeholder">
+            <!-- placeholder -->
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const { goto, addToScore, getScore } = useAppState();
+const { goto, resetScore, addToScore } = useAppState();
 
 const questionIdx = ref<number>(0);
 const questions = useQuestions();
@@ -46,6 +48,10 @@ const areCardsLocked = ref<boolean>(false);
 
 const companyA = computed(() => questions[questionIdx.value]!.companyA);
 const companyB = computed(() => questions[questionIdx.value]!.companyB);
+
+onMounted(() => {
+    resetScore();
+})
 
 const handleScore = (selection: 'A' | 'B') => {
     if (areCardsLocked.value === true) {
@@ -73,14 +79,19 @@ const handleNextState = () => {
 
 <style scoped>
 .question-screen {
-    @apply flex flex-col flex-nowrap justify-start items-center gap-4 pt-12;
+    @apply flex flex-col flex-nowrap justify-start md:justify-center items-center gap-2 md:gap-4 py-10 md:py-0;
     @apply min-w-full min-h-full;
     @apply bg-sig-whiteish;
 }
 
 .question-screen .next-button {
     @apply text-sig-green font-bold text-lg;
-    @apply py-3 px-12 bg-sig-accent rounded-lg;
+    @apply px-12 bg-sig-accent rounded-lg;
     @apply transition-transform duration-300 hover:scale-105;
+}
+
+.question-screen .next-button,
+.question-screen .next-button-placeholder {
+    @apply min-h-14;
 }
 </style>
