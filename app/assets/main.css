@@ -1,5 +1,6 @@
 :root {
     @apply font-poppins;
+    
     /* colors */
     --sig-green: #425d44;
     --sig-accent: #ffc01e;
@@ -26,12 +27,40 @@
 
 /* animation */
 @keyframes bounce-3times {
-    0%, 100% {
+    0%,
+    100% {
         transform: none;
-        animation-timing-function: cubic-bezier(0,0,0.2,1);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
     50% {
         transform: translateY(-10%);
-        animation-timing-function: cubic-bezier(0.8,0,1,1);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
     }
 }
+
+/* coponents */
+:root {
+    --card-width: min(80vw, 310px);
+}
+
+@media screen and (min-width: 720px) {
+    :root {
+        --card-width: min(40vw, 310px);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    :root {
+        --card-width: 24rem;
+    }
+}
+
+.element-card-base {
+    @apply select-none;
+    @apply bg-white shadow-md rounded-xl cursor-pointer;
+    @apply flex flex-col gap-3 items-center justify-start py-5 xl:py-14;
+
+    width: var(--card-width);
+    min-height: var(--card-width);
+}
+

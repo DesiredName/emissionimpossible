@@ -12,6 +12,9 @@
                 :total="totalQuestions"
             />
         </div>
+        <div>
+            {{ results.message }}
+        </div>
         <ElementsButton @click="handleNextState">
             Continue to Final Test
         </ElementsButton>
@@ -28,12 +31,12 @@ const handleNextState = () => goto('final');
 const results = computed<{ emoji: string; message: string }>(() => {
     const score = getScore.value;
 
-    if (score <= 1) return { emoji: "💩😬", message: "Oops! Time to brush up on carbon literacy!" };
-    if (score <= 2) return { emoji: "😅", message: "Not bad, but there's room to grow!" };
-    if (score <= 3) return { emoji: "👍", message: "Good work! You're getting the hang of it!" };
-    if (score <= 4) return { emoji: "😲💪", message: "Impressive! You really know your carbon footprints!" };
+    if (score <= 1) return { emoji: "😬", message: "Oops!" };
+    if (score <= 2) return { emoji: "😅", message: "Not bad!" };
+    if (score <= 3) return { emoji: "👍", message: "Good work!" };
+    if (score <= 4) return { emoji: "😲", message: "Impressive!" };
 
-    return { emoji: "🏆🌱", message: "Outstanding! You're a carbon emissions expert!" };
+    return { emoji: "🏆🌱", message: "Outstanding!" };
 });
 </script>
 

@@ -13,18 +13,18 @@
             Which website has <span className="font-bold">higher</span> carbon emissions per page load?
         </div>
 
-        <div class="flex flex-col md:flex-row justify-evenly items-center gap-12 my-8">
-            <ElementsCard
+        <ElementsCardsContainer>
+            <ElementsCardCompany
                 :company="companyA"
                 :is-locked="areCardsLocked"
                 @click="handleScore('A')"
             />
-            <ElementsCard
+            <ElementsCardCompany
                 :company="companyB"
                 :is-locked="areCardsLocked"
                 @click="handleScore('B')"
             />
-        </div>
+        </ElementsCardsContainer>
 
         <ElementsButton
             v-if="areCardsLocked"
