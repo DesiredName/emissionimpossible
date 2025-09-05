@@ -40,5 +40,9 @@ export default defineNuxtConfig({
       },
       Agdasima: true
     }
+  },
+  supabase: {
+    redirect: false,
+    redirectOptions: undefined
   }
 })
