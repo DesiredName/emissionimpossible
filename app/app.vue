@@ -12,15 +12,15 @@
 <script setup lang="ts">
 const { state, reset } = useAppState();
 
-useHead({
-  title: 'GrowRoom - EMISSION:IMPOSSIBLE',
-});
-
 useSeoMeta({
-  description: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`,
+  description: 'GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.',
+
+  ogUrl: 'https://growroom.agency',
   ogLocale: 'en_GB',
   ogTitle: `Sustainable Digital Marketing Agency | GrowRoom`,
   ogDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`,
+  ogSiteName: 'GrowRoom',
+
   twitterTitle: `Sustainable Digital Marketing Agency | GrowRoom`,
   twitterDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`
 });

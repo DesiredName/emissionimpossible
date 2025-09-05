@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      title: 'GrowRoom - EMISSION:IMPOSSIBLE',
+      htmlAttrs: {
+        'lang': 'en_GB',
+      },
       link: [
         { rel: 'icon', sizes: '32x32', href: 'https://growroom.agency/wp-content/uploads/2025/06/cropped-favicon-96x96-1-32x32.png' },
         { rel: 'icon', sizes: '192x192', href: 'https://growroom.agency/wp-content/uploads/2025/06/cropped-favicon-96x96-1-192x192.png' },
@@ -20,6 +24,7 @@ export default defineNuxtConfig({
         { rel: 'preload', as: 'image', href: '/assets/companies/shell-2020.svg' },
         { rel: 'preload', as: 'image', href: '/assets/companies/Tony_s_Chocolonely_Logo_NL.svg' },
         { rel: 'preload', as: 'image', href: '/assets/companies/United_Nations_Climate_Change_Conference_logo.svg' },
+        { rel: 'canonical', href: 'https://growroom.agency' }
       ],
       meta: [
         { name: 'msapplication-TileImage', content: `https://growroom.agency/wp-content/uploads/2025/06/cropped-favicon-96x96-1-270x270.png` }
@@ -36,7 +41,7 @@ export default defineNuxtConfig({
     display: 'block',
     families: {
       Poppins: {
-        wght:[400,700,800]
+        wght: [400, 700, 800]
       },
       Agdasima: true
     }

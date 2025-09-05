@@ -1,11 +1,11 @@
 export default function () {
-    const { totalQuestions } = useAppConfig()
+    const { totalQuestions, growRoom } = useAppConfig()
     const companies: Company[] = [
+        growRoom,
         { name: 'Shell', logo: 'shell-2020.svg', emissions: 0.16, ecoscore: 75, web: 'https://www.shell.co.uk' },
         { name: 'Patagonia', logo: 'Patagonia_(Unternehmen)_logo.svg', emissions: 1.54, ecoscore: 44, web: 'https://eu.patagonia.com/gb/en/home' },
         { name: 'Coca-Cola', logo: 'coca-cola-logo.svg', emissions: 1.16, ecoscore: 49, web: 'https://www.coca-cola.com/gb/en' },
         { name: 'Tony\'s Chocolonely', logo: 'Tony_s_Chocolonely_Logo_NL.svg', emissions: 1.38, ecoscore: 65, web: 'https://uk.tonyschocolonely.com' },
-        { name: 'GrowRoom', logo: 'GrowRoomGR-Logo-Only.svg', emissions: 0.22, ecoscore: 92, web: 'https://growroom.agency' },
         { name: 'Fussy', logo: 'Fussy_Black_Logo.svg', emissions: 1.89, ecoscore: 61, web: 'https://www.getfussy.com' },
         { name: 'Schneider Electric', logo: 'Schneider_Electric_2008.svg', emissions: 2.62, ecoscore: 35, web: 'https://www.se.com/ww/en' },
         { name: 'B-Lab', logo: 'B_Lab_logo.svg', emissions: 0.9, ecoscore: 68, web: 'https://bcorporation.uk' },
