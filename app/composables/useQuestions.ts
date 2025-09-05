@@ -1,17 +1,3 @@
-export type Company = {
-    name: string;
-    logo: string;
-    ecoscore: number;
-    emissions: number;
-    web: string;
-}
-
-export type Question = {
-    companyA: Company;
-    companyB: Company;
-    isCorrectChoise: 'A' | 'B';
-}
-
 export default function () {
     const { totalQuestions } = useAppConfig()
     const companies: Company[] = [

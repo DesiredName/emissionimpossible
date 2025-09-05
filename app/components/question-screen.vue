@@ -41,18 +41,13 @@
 </template>
 
 <script setup lang="ts">
-const { goto, reset, addToScore } = useAppState();
+const { goto, addToScore } = useAppState();
 
 const questionIdx = ref<number>(0);
 const questions = useQuestions();
 const areCardsLocked = ref<boolean>(false);
 
-
 const question = computed(() => questions[questionIdx.value]!);
-
-onMounted(() => {
-    reset();
-})
 
 const handleScore = (selection: 'A' | 'B') => {
     if (areCardsLocked.value === true) {

@@ -11,6 +11,10 @@ export default function () {
         goto: (next: AppState) => state.value = next,
 
         getScore: computed(() => score.value),
+        getResultedState: computed(() => ({
+            ...userdata.value,
+            score: score.value,
+        } satisfies ResultedState)),
 
         reset: () => {
             score.value = 0;

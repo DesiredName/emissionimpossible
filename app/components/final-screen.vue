@@ -39,16 +39,24 @@
             </template>
         </ElementsCardsContainer>
 
-
         <ElementsButton class="mt-10" @click="handleGoHome">Restart</ElementsButton>
     </div>
 </template>
 
 <script setup lang="ts">
-const { goto } = useAppState();
+const { goto, getResultedState } = useAppState();
 const { growRoom } = useAppConfig();
 
 const handleGoHome = () => goto('welcome');
+
+onMounted(() => {
+    $fetch('/api/submit', {
+        method: 'post',
+        body: getResultedState.value
+    }).catch(() => {
+        // ignore
+    })
+})
 </script>
 
 <style scoped>
