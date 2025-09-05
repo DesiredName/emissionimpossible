@@ -7,6 +7,9 @@
     --sig-grey: #373737;
     --sig-placeholder: #ababab;
     --sig-whiteish: #f3f3f3;
+
+    /* transitions */
+    interpolate-size: allow-keywords;
 }
 
 /* transition */
@@ -58,9 +61,10 @@
 .element-card-base {
     @apply select-none;
     @apply bg-white shadow-md rounded-xl cursor-pointer;
-    @apply flex flex-col gap-3 items-center justify-start py-5 xl:py-14;
+    @apply flex flex-col gap-2 items-center justify-start pt-4;
+    @apply transition-all duration-300;
 
     width: var(--card-width);
-    min-height: var(--card-width);
+    min-height: max-content;
 }
 

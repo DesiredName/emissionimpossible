@@ -10,17 +10,19 @@
         </div>
 
         <div class="text-center text-lg mt-5">
-            Which website has <span className="font-bold">higher</span> carbon emissions per page load?
+            Which of the following websites are <span className="font-bold">better optimised</span> for energy efficiency?
         </div>
 
         <ElementsCardsContainer>
             <ElementsCardCompany
-                :company="companyA"
+                :company="question.companyA"
+                :is-correct-choise="question.isCorrectChoise == 'A'"
                 :is-locked="areCardsLocked"
                 @click="handleScore('A')"
             />
             <ElementsCardCompany
-                :company="companyB"
+                :company="question.companyB"
+                :is-correct-choise="question.isCorrectChoise == 'B'"
                 :is-locked="areCardsLocked"
                 @click="handleScore('B')"
             />
@@ -39,17 +41,17 @@
 </template>
 
 <script setup lang="ts">
-const { goto, resetScore, addToScore } = useAppState();
+const { goto, reset, addToScore } = useAppState();
 
 const questionIdx = ref<number>(0);
 const questions = useQuestions();
 const areCardsLocked = ref<boolean>(false);
 
-const companyA = computed(() => questions[questionIdx.value]!.companyA);
-const companyB = computed(() => questions[questionIdx.value]!.companyB);
+
+const question = computed(() => questions[questionIdx.value]!);
 
 onMounted(() => {
-    resetScore();
+    reset();
 })
 
 const handleScore = (selection: 'A' | 'B') => {
@@ -57,11 +59,9 @@ const handleScore = (selection: 'A' | 'B') => {
         return;
     }
 
-    const isCorrect =
-        (selection === 'A' && companyA.value.emissions > companyB.value.emissions) ||
-        (selection === 'B' && companyB.value.emissions > companyA.value.emissions);
-
-    if (isCorrect) addToScore();
+    if (selection == question.value.isCorrectChoise) {
+        addToScore();
+    }
 
     areCardsLocked.value = true;
 }

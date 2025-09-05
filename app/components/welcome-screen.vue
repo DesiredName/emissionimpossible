@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-const { goto } = useAppState();
+const { goto, setUserData } = useAppState();
 
 const email = ref<string>('');
 const username = ref<string>('');
@@ -76,6 +76,10 @@ const handleGoToQuestion = async () => {
 
         return
     } else {
+        setUserData({
+            email: email.value,
+            username: username.value,
+        })
         goto('questionnaire');
     }
 }

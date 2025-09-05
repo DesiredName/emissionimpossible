@@ -1,26 +1,25 @@
 <template>
     <div tabindex="0" role="button" class="element-card-base element-card-company" :class="{'is-locked': isLocked}">
-        <div class="text-9xl">{{ company.logo }}</div>
+        <div>
+            <img class="size-32" :src="`/assets/companies/${company.logo}`" :alt="company.web" >
+        </div>
         <div class="text-xl font-bold">{{ company.name }}</div>
-        <Transition name="fade" mode="out-in">
-            <div v-if="isLocked" class="answer-block">
-                <div class="font-extrabold text-xl">{{ company.emissions }}g CO<sub>2</sub></div>
-                <div class="text-sig-placeholder text-sm">per page load</div>
-                <div class="mt-4">
-                    <IconsCorrect v-if="company.isSustainable" class="size-8 text-sig-green" />
-                    <IconsIncorrect v-else class="size-8 text-red-500" />
-                </div>
+        <div :class="{ 'answer-block': true, 'is-active': isLocked }">
+            <div class="font-extrabold text-2xl">{{ company.ecoscore }}</div>
+            <div class="font-bold">{{ company.emissions }}g CO<sub>2</sub></div>
+            <div class="text-sig-placeholder text-sm">per page load</div>
+            <div>
+                <IconsCorrect v-if="isCorrectChoise" class="size-8 text-sig-green" />
+                <IconsIncorrect v-else class="size-8 text-red-500" />
             </div>
-            <div v-else class="answer-block-placeholder">
-                <!-- placehodler -->
-            </div>
-        </Transition>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 defineProps<{
     company: Company,
+    isCorrectChoise: boolean,
     isLocked: boolean,
 }>()
 </script>
@@ -31,12 +30,12 @@ defineProps<{
 }
 
 .element-card-company .answer-block {
-    @apply bg-sig-whiteish rounded-xl text-center pt-4;
+    @apply flex flex-col flex-nowrap justify-center items-center gap-1;
+    @apply bg-sig-whiteish rounded-xl w-4/5 overflow-hidden;
+    
+    @apply h-0 py-0 mb-0 opacity-0 transition-all duration-300;
 }
-
-.element-card-company .answer-block,
-.element-card-company .answer-block-placeholder {
-    width: calc(var(--card-width) * 0.8);
-    height: calc(var(--card-width) * 0.3);
+.element-card-company .answer-block.is-active {
+    @apply h-max py-2 mb-6 opacity-100;
 }
 </style>

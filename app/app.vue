@@ -29,6 +29,6 @@ useSeoMeta({
 <style scoped>
 .app-container {
   @apply w-screen h-screen overflow-visible;
-  @apply bg-sig-green;
+  @apply bg-sig-whiteish;
 }
 </style>
