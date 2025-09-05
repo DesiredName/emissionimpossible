@@ -24,7 +24,6 @@ export default defineNuxtConfig({
         { rel: 'preload', as: 'image', href: '/assets/companies/shell-2020.svg' },
         { rel: 'preload', as: 'image', href: '/assets/companies/Tony_s_Chocolonely_Logo_NL.svg' },
         { rel: 'preload', as: 'image', href: '/assets/companies/United_Nations_Climate_Change_Conference_logo.svg' },
-        { rel: 'canonical', href: 'https://growroom.agency' }
       ],
       meta: [
         { name: 'msapplication-TileImage', content: `https://growroom.agency/wp-content/uploads/2025/06/cropped-favicon-96x96-1-270x270.png` }
