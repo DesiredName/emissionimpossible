@@ -31,11 +31,7 @@ export default defineNuxtConfig({
     './assets/main.css',
   ],
   devtools: { enabled: false },
-  modules: [
-    '@nuxt/eslint',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-fonts'
-  ],
+  modules: ['@nuxt/eslint', '@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@nuxtjs/supabase'],
   googleFonts: {
     display: 'block',
     families: {

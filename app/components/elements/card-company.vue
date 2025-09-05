@@ -1,7 +1,7 @@
 <template>
     <div tabindex="0" role="button" class="element-card-base element-card-company" :class="{'is-locked': isLocked}">
         <div>
-            <img class="size-32" :src="`/assets/companies/${company.logo}`" :alt="company.web" >
+            <img :key="company.name" class="size-32" :src="`/assets/companies/${company.logo}`" :alt="company.web" >
         </div>
         <div class="text-xl font-bold">{{ company.name }}</div>
         <ElementsAnswerBlock

@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-const { goto, setUserData } = useAppState();
+const { goto, reset, setUserData } = useAppState();
 
 const email = ref<string>('');
 const username = ref<string>('');
@@ -87,6 +87,8 @@ const handleGoToQuestion = async () => {
 onMounted(() => {
     isEmailError.value = false;
     isUsernameError.value = false;
+  
+    reset();
 });
 </script>
 
