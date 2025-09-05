@@ -4,15 +4,12 @@
             <img class="size-32" :src="`/assets/companies/${company.logo}`" :alt="company.web" >
         </div>
         <div class="text-xl font-bold">{{ company.name }}</div>
-        <div :class="{ 'answer-block': true, 'is-active': isLocked }">
-            <div class="font-extrabold text-2xl">{{ company.ecoscore }}</div>
-            <div class="font-bold">{{ company.emissions }}g CO<sub>2</sub></div>
-            <div class="text-sig-placeholder text-sm">per page load</div>
-            <div>
-                <IconsCorrect v-if="isCorrectChoise" class="size-8 text-sig-green" />
-                <IconsIncorrect v-else class="size-8 text-red-500" />
-            </div>
-        </div>
+        <ElementsAnswerBlock
+            class="bg-sig-whiteish"
+            :company="company"
+            :is-visible="isLocked===true"
+            :is-correct-choise="isCorrectChoise"
+        />
     </div>
 </template>
 
@@ -25,6 +22,10 @@ defineProps<{
 </script>
 
 <style scoped>
+.element-card-company {
+    @apply hover:scale-105;
+}
+
 .element-card-company.is-locked {
     @apply cursor-not-allowed;
 }
@@ -35,7 +36,8 @@ defineProps<{
     
     @apply h-0 py-0 mb-0 opacity-0 transition-all duration-300;
 }
-.element-card-company .answer-block.is-active {
+
+.element-card-company .answer-block.is-visible {
     @apply h-max py-2 mb-6 opacity-100;
 }
 </style>

@@ -42,7 +42,7 @@ const results = computed<{ emoji: string; message: string }>(() => {
 
 <style scoped>
 .score-screen {
-    @apply flex flex-col flex-nowrap justify-center items-center gap-4 pt-8;
+    @apply flex flex-col flex-nowrap justify-center items-center gap-4;
     @apply min-w-full min-h-full;
     @apply bg-sig-whiteish;
 }

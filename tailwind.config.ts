@@ -10,7 +10,7 @@ export default <Partial<Config>>{
       colors: {
         'sig-green': 'var(--sig-green)',
         'sig-accent': 'var(--sig-accent)',
-        'sig-grey': 'var(--sig-grey)',
+        'sig-gray': 'var(--sig-gray)',
         'sig-placeholder': 'var(--sig-placeholder)',
         'sig-whiteish': 'var(--sig-whiteish)',
       },

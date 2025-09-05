@@ -131,7 +131,7 @@ onMounted(() => {
 }
 
 .form input {
-    @apply text-sig-grey;
+    @apply text-sig-gray;
 }
 
 .form input::placeholder {
@@ -139,7 +139,7 @@ onMounted(() => {
 }
 
 .form button {
-    @apply bg-sig-accent text-sig-grey;
+    @apply bg-sig-accent text-sig-gray;
 }
 
 /* placing form */

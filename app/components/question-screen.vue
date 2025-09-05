@@ -78,7 +78,7 @@ const handleNextState = () => {
 
 <style scoped>
 .question-screen {
-    @apply flex flex-col flex-nowrap justify-start md:justify-center items-center gap-2 md:gap-4 py-10 md:py-0;
+    @apply flex flex-col flex-nowrap justify-center items-center gap-2 py-10 md:py-0;
     @apply min-w-full min-h-full;
     @apply bg-sig-whiteish;
 }
