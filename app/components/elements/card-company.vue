@@ -1,5 +1,5 @@
 <template>
-    <div tabindex="0" role="button" class="element-card-base element-card-company" :class="{'is-locked': isLocked}">
+    <div tabindex="0" role="button" class="element-card-base element-card-company" :class="{'is-locked': isShowingAnswers, 'is-selected': isSelected}">
         <div>
             <img :key="company.name" class="size-32" :src="`/assets/companies/${company.logo}`" :alt="company.web" >
         </div>
@@ -7,7 +7,7 @@
         <ElementsAnswerBlock
             class="bg-sig-whiteish"
             :company="company"
-            :is-visible="isLocked===true"
+            :is-visible="isShowingAnswers===true"
             :is-correct-choise="isCorrectChoise"
         />
     </div>
@@ -16,8 +16,9 @@
 <script setup lang="ts">
 defineProps<{
     company: Company,
+    isSelected: boolean,
     isCorrectChoise: boolean,
-    isLocked: boolean,
+    isShowingAnswers: boolean,
 }>()
 </script>
 
@@ -29,6 +30,11 @@ defineProps<{
 .element-card-company.is-locked {
     @apply cursor-not-allowed;
 }
+
+.element-card-company.is-selected {
+    @apply border-4 border-sig-accent;
+}
+
 
 .element-card-company .answer-block {
     @apply flex flex-col flex-nowrap justify-center items-center gap-1;

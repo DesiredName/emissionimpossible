@@ -1,3 +1,5 @@
+declare type CardChoise = 'A' | 'B';
+
 declare type Company = {
     name: string;
     logo: string;
@@ -9,7 +11,7 @@ declare type Company = {
 declare type Question = {
     companyA: Company;
     companyB: Company;
-    isCorrectChoise: 'A' | 'B';
+    isCorrectChoise: CardChoise;
 }
 
 declare type ResultedState = {
