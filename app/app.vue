@@ -21,6 +21,7 @@ useSeoMeta({
   ogDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`,
   ogSiteName: 'GrowRoom',
 
+  twitterCard: 'summary_large_image',
   twitterTitle: `Sustainable Digital Marketing Agency | GrowRoom`,
   twitterDescription: `GrowRoom are a digital marking agency based in Shrewsbury, UK. We drive sustainable online growth for responsible brands. Get in touch today.`
 });
