@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     head: {
       title: 'GrowRoom - EMISSION:IMPOSSIBLE',
       htmlAttrs: {
-        'lang': 'en_GB',
+        'lang': 'en',
       },
       link: [
         { rel: 'icon', sizes: '32x32', href: 'https://growroom.agency/wp-content/uploads/2025/06/cropped-favicon-96x96-1-32x32.png' },
