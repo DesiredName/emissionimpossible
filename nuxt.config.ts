@@ -48,5 +48,10 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
     redirectOptions: undefined
+  },
+  postcss: {
+    plugins: {
+      autoprefixer: {}
+    },
   }
 })

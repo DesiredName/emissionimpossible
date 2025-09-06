@@ -25,7 +25,7 @@
                 :stroke-dasharray="`${(value / total) * c} ${c}`"
             />
         </svg>
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-3xl font-bold">
                 {{ value }} / {{ total }}
             </div>
