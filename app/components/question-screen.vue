@@ -17,16 +17,17 @@
             </div>
 
             <div class="text-center text-lg mt-5">
-                Which of the following websites are <span className="font-bold">better optimised</span> for energy
+                Which of the following websites are <span class="font-bold">better optimised</span> for energy
                 efficiency?
             </div>
 
             <Transition name="fade">
-                <div v-if="state.isResultedEmojiShown && state.isChosenAnswerWasCorrect" className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
-                    <div className="text-8xl animate-bounce">🎉</div>
-                </div>
-                <div v-else-if="state.isResultedEmojiShown && !state.isChosenAnswerWasCorrect" className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
-                    <div className="text-8xl animate-pulse">😬</div>
+                <div 
+                    v-if="state.isResultedEmojiShown"
+                    class="emoji-container"
+                >
+                    <div v-if="state.isChosenAnswerWasCorrect" class="text-8xl animate-bounce">🎉</div>
+                    <div v-else class="text-8xl animate-pulse">😬</div>
                 </div>
             </Transition>
 
@@ -36,14 +37,14 @@
                     :is-selected="state.chosenAnswer === 'A'"
                     :is-correct-choise="question.isCorrectChoise == 'A'"
                     :is-showing-answers="state.isInfoBlockShown"
-                    @click="handleScore('A')"
+                    @click="handleUserChoise('A')"
                 />
                 <ElementsCardCompany
                     :company="question.companyB"
                     :is-selected="state.chosenAnswer === 'B'"
                     :is-correct-choise="question.isCorrectChoise == 'B'"
                     :is-showing-answers="state.isInfoBlockShown"
-                    @click="handleScore('B')"
+                    @click="handleUserChoise('B')"
                 />
             </ElementsCardsContainer>
 
@@ -93,6 +94,15 @@ const state = ref<{
 const question = computed(() => state.value.questions[state.value.questionIdx]!);
 
 // 
+const _judjeChoise = (selection: CardChoise) => {
+    state.value.chosenAnswer = selection;
+    state.value.isChosenAnswerWasCorrect = selection == question.value.isCorrectChoise;
+
+    if (state.value.isChosenAnswerWasCorrect) {
+        addToScore();
+    }
+}
+
 const _shakeScreen = async () => {
     state.value.isShaking = true;
 
@@ -101,7 +111,8 @@ const _shakeScreen = async () => {
     state.value.isShaking = false;
 }
 
-const _changeColorAndShowFace = async (_isCorrectAnswer: boolean) => {
+const _changeColorAndShowFace = async () => {
+    state.value.isContinueButtonShown = true;
     state.value.isInfoBlockShown = true;
     state.value.isResultedEmojiShown = true;
     state.value.isResultedBgColorShown = true;
@@ -112,23 +123,14 @@ const _changeColorAndShowFace = async (_isCorrectAnswer: boolean) => {
 }
 // 
 
-const handleScore = async (selection: CardChoise) => {
+const handleUserChoise = async (choise: CardChoise) => {
     if (state.value.chosenAnswer != null) {
         return;
     }
        
-    state.value.chosenAnswer = selection;
-    state.value.isChosenAnswerWasCorrect = selection == question.value.isCorrectChoise;
-
-    if (state.value.isChosenAnswerWasCorrect) {
-        addToScore();
-    }
-
+    _judjeChoise(choise);
     await _shakeScreen();
-    
-    state.value.isContinueButtonShown = true;
-
-    await _changeColorAndShowFace(state.value.isChosenAnswerWasCorrect);
+    await _changeColorAndShowFace();
 }
 
 const handleNextState = () => {
@@ -164,5 +166,9 @@ const handleNextState = () => {
     animation-name: animate-shaking;
     animation-duration: 200ms;
     animation-iteration-count: infinite;
+}
+
+.question-screen .main-container .emoji-container {
+    @apply fixed inset-0 pointer-events-none z-50 flex items-center justify-center;
 }
 </style>

@@ -22,8 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import { ElementsButton } from '#components';
-
 const { goto, getScore } = useAppState();
 const { totalQuestions } = useAppConfig()
 const handleNextState = () => goto('final');
