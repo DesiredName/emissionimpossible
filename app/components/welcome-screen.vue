@@ -34,6 +34,25 @@
                             @focus="handleResetError"
                         >
                     </div>
+                    <div class="privacy-policy" :class="{ 'is-invalid': isPrivayPolicyError }">
+                        <label
+                            for="privacy-policy-agreement"
+                            class="text-xs md:text-sm xl:text-base text-pretty text-justify"
+                        >
+                            <input
+                                id="privacy-policy-agreement"
+                                v-model="privacyPolicyAgreed"
+                                type="checkbox"
+                                class="grow-0 shrink-0"
+                            >
+                            I understand that GrowRoom will securely hold my data in accordance with their
+                            <a
+                                href="https://growroom.agency/privacy-policy"
+                                class="underline underline-offset-2"
+                                target="_blank"
+                            >privacy policy</a>.
+                        </label>
+                    </div>
                     <div class="control-container">
                         <button type="submit">
                             Start Game
@@ -50,15 +69,18 @@ const { goto, reset, setUserData } = useAppState();
 
 const email = ref<string>('');
 const username = ref<string>('');
+const privacyPolicyAgreed = ref<boolean>(false);
 
 const resetErrorStateTimer = ref<number | undefined>(undefined);
-const isEmailError = ref<boolean>(true);
-const isUsernameError = ref<boolean>(true);
+const isPrivayPolicyError = ref<boolean>(false);
+const isEmailError = ref<boolean>(false);
+const isUsernameError = ref<boolean>(false);
 
 const handleResetError = () => {
     window.clearTimeout(resetErrorStateTimer.value);
 
     resetErrorStateTimer.value = undefined;
+    isPrivayPolicyError.value = false;
     isEmailError.value = false;
     isUsernameError.value = false;
 }
@@ -68,8 +90,9 @@ const handleGoToQuestion = async () => {
 
     isEmailError.value = /^.*@.*\..{2,}$/i.test(email.value) !== true;
     isUsernameError.value = username.value.trim().length <= 0;
+    isPrivayPolicyError.value = privacyPolicyAgreed.value !== true;
 
-    if (isEmailError.value || isUsernameError.value) {
+    if (isEmailError.value || isUsernameError.value || isPrivayPolicyError.value) {
         resetErrorStateTimer.value = window.setTimeout(() => {
             handleResetError()
         }, 4000);
@@ -87,7 +110,8 @@ const handleGoToQuestion = async () => {
 onMounted(() => {
     isEmailError.value = false;
     isUsernameError.value = false;
-  
+    isPrivayPolicyError.value = false;
+
     reset();
 });
 </script>
@@ -100,11 +124,6 @@ onMounted(() => {
     @apply bg-[url(/assets/bg-mobile.webp)] md:bg-[url(/assets/bg-tablet.webp)] xl:bg-[url(/assets/bg-desktop.webp)];
 }
 
-/* form */
-.welcome-screen-container .form-container .form {
-    @apply min-w-min w-fit;
-}
-
 /* controls */
 .form input,
 .form button {
@@ -112,7 +131,7 @@ onMounted(() => {
 }
 
 .form .form-controls-container {
-    @apply flex flex-col flex-nowrap justify-start items-stretch;
+    @apply flex flex-col flex-nowrap justify-start items-stretch min-w-0;
 }
 
 .form .form-controls-container .control-container {
@@ -128,7 +147,7 @@ onMounted(() => {
     @apply border-none outline-none;
 }
 
-.form input.is-invalid {
+.form .is-invalid {
     @apply animate-[bounce-3times_1s_3];
 }
 
@@ -154,7 +173,9 @@ onMounted(() => {
 
 /* sizing - company-slogan is base width */
 
-.form .company-slogan {
+.form,
+.form .company-slogan,
+.form .privacy-policy {
     @apply origin-center object-contain w-64;
     @apply md:w-80;
     @apply xl:w-[30.5rem];
@@ -195,5 +216,10 @@ onMounted(() => {
 .form .form-controls-container .control-container:has(button) {
     @apply mt-2;
     @apply xl:mt-4;
+}
+
+/* misc */
+.form .privacy-policy {
+    @apply flex flex-row justify-start items-start gap-2 select-none;
 }
 </style>

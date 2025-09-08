@@ -7,7 +7,7 @@
         <ElementsCardsContainer>
             <ElementsCardContainer>
                 <div>
-                    <img class="size-32" :src="`/assets/companies/${growRoom.logo}`" :alt="growRoom.web" >
+                    <ElementsBrandLogo :company="growRoom" />
                 </div>
                 <div class="font-extrabold text-2xl text-black">
                     {{ growRoom.name }}
