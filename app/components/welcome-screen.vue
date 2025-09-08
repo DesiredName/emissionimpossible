@@ -34,23 +34,25 @@
                             @focus="handleResetError"
                         >
                     </div>
-                    <div class="privacy-policy" :class="{ 'is-invalid': isPrivayPolicyError }">
-                        <label
-                            for="privacy-policy-agreement"
-                            class="text-xs md:text-sm xl:text-base text-pretty text-justify"
-                        >
+                    <div
+                        class="privacy-policy"
+                        :class="{ 'is-invalid': isPrivayPolicyError }"
+                    >
+                        <label for="privacy-policy-agreement">
                             <input
                                 id="privacy-policy-agreement"
                                 v-model="privacyPolicyAgreed"
                                 type="checkbox"
                                 class="grow-0 shrink-0"
                             >
-                            I understand that GrowRoom will securely hold my data in accordance with their
-                            <a
-                                href="https://growroom.agency/privacy-policy"
-                                class="underline underline-offset-2"
-                                target="_blank"
-                            >privacy policy</a>.
+                            <span class="text-xs md:text-sm xl:text-base text-pretty text-justify">
+                                I understand that GrowRoom will securely hold my data in accordance with their
+                                <a
+                                    href="https://growroom.agency/privacy-policy"
+                                    class="underline underline-offset-2"
+                                    target="_blank"
+                                >privacy policy</a>.
+                            </span>
                         </label>
                     </div>
                     <div class="control-container">
@@ -220,6 +222,7 @@ onMounted(() => {
 
 /* misc */
 .form .privacy-policy {
-    @apply flex flex-row justify-start items-start gap-2 select-none;
+    @apply flex flex-row justify-start items-start gap-2;
+    @apply cursor-pointer select-none;
 }
 </style>
