@@ -2,7 +2,7 @@ declare type CardChoise = 'A' | 'B';
 
 declare type Company = {
     name: string;
-    logo: string;
+    logo: { src: string; type: 'png' | 'svg'; };
     ecoscore: number;
     emissions: number;
     web: string;
