@@ -146,7 +146,7 @@ onMounted(() => {
 }
 
 .form input {
-    @apply border-none outline-none;
+    @apply border-none outline-none bg-white;
 }
 
 .form .is-invalid {

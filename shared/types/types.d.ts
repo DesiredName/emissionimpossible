@@ -18,4 +18,5 @@ declare type ResultedState = {
     email: string;
     username: string;
     score: number;
+    url?: string;
 }

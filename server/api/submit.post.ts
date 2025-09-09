@@ -17,12 +17,20 @@ export default defineEventHandler(async (event) => {
         body.username.length > 0 && 
         body.username.length <= 512 && 
         body.score >= 0 && 
-        body.score <= 10
+        body.score <= 10 && (
+            body.url == null || (
+                body.url.length > 0 && 
+                body.url.length <= 512
+            )
+        )
     ) {
         const { error } = await supabase.from('guests').upsert({
             'email': body.email,
             'username': body.username,
             'score': body.score,
+            'url': body.url ?? undefined,
+        }, {
+            onConflict: 'email,username'
         });
 
         console.log(error)
