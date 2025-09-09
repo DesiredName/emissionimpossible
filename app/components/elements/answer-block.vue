@@ -1,13 +1,13 @@
 <template>
-        <div :class="{ 'answer-block': true, 'is-visible': isVisible }">
-            <div class="font-extrabold text-2xl">{{ company.ecoscore }}</div>
-            <div class="font-bold">{{ company.emissions }}g CO<sub>2</sub></div>
-            <div class="text-sm">per page load</div>
-            <div v-if="isCorrectChoise != null">
-                <IconsCorrect v-if="isCorrectChoise === true" class="size-8 text-sig-green" />
-                <IconsIncorrect v-else class="size-8 text-red-500" />
-            </div>
+    <div class="answer-block" :class="{'is-visible': isVisible }">
+        <div class="font-extrabold text-2xl md:mb-3">{{ company.ecoscore }}%</div>
+        <div class="font-bold">{{ company.emissions }}g CO<sub>2</sub></div>
+        <div class="text-sm">per page load</div>
+        <div v-if="isCorrectChoise != null">
+            <IconsCorrect v-if="isCorrectChoise === true" class="size-8 text-sig-green" />
+            <IconsIncorrect v-else class="size-8 text-red-500" />
         </div>
+    </div>
 </template>
 
 <script setup lang="ts">

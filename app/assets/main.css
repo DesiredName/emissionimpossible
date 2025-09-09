@@ -61,7 +61,7 @@
 .element-card-base {
     @apply select-none;
     @apply bg-white shadow-md rounded-xl cursor-pointer;
-    @apply flex flex-col gap-2 items-center justify-start pt-4;
+    @apply flex flex-col gap-2 md:gap-4 items-center justify-start pt-4;
     @apply transition-all duration-300;
 
     width: var(--card-width);

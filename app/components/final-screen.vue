@@ -24,8 +24,8 @@
                 <div class="font-extrabold text-2xl text-sig-gray">
                     Your Website
                 </div>
-                <div class="info-custom-block bg-sig-whiteish text-sig-gray">
-                    <div class="font-bold text-2xl">?</div>
+                <div class="info-custom-block">
+                    <div class="font-bold text-3xl">?</div>
                     <div class="text-lg">Let's find out!</div>
                 </div>
             </ElementsCardContainer>
@@ -69,6 +69,7 @@ onMounted(() => {
 .finall-screen .info-custom-block {
     @apply flex flex-col flex-nowrap justify-center items-center gap-1;
     @apply rounded-xl w-4/5 overflow-hidden;
-    @apply h-max py-4 mb-6;
+    @apply h-max pt-5 pb-6 mb-6;
+    @apply bg-sig-whiteish text-sig-gray;
 }
 </style>
