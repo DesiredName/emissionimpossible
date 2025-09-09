@@ -38,7 +38,7 @@
                     <Transition name="fade">
                         <div v-if="showSubmitButton" class="absolute top-2/3 z-50">
                             <ElementsButton @click="submitFinallState">
-                                <span class="text-sm">Submit</span>
+                                <span class="text-sm md:text-base xl:text-lg">Submit</span>
                             </ElementsButton>
                         </div>
                     </Transition>
@@ -112,7 +112,6 @@ onMounted(() => submitFinallState())
     @apply block outline-none border-none rounded-md w-full;
     @apply min-w-0 p-2;
     @apply text-sm md:text-base xl:text-lg;
-    @apply text-left md:text-center;
 }
 
 .finall-screen .info-custom-block .url-input-description {
